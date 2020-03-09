@@ -1,66 +1,40 @@
-// pages/home/home.js
+const app = getApp()
+console.log(app.globalData.name)
+console.log(app.globalData.age)
+
 Page({
+  data:{
+    name:'Coderwhy',
+    age:18,
+    students:[
+      {id:110,name:'kobe',age:30},
+      {id: 111,name: 'jake',age: 20 },
+      { id: 112, name: 'jane', age: 31 },
+      { id: 113, name: 'jok', age: 24 },
+      ],
+      counter:0
+  },
+  handleBtnClick(){
+    //1.界面不会刷新
+    // this.data.counter += 1
+    // console.log(this.data.counter)
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+    //2.this.setData()
+    this.setData({
+      counter:this.data.counter +1
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  minusBtnClick(){
+    this.setData({
+      counter:this.data.counter -1
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  handleGetUserInfo(event) {
+   console.log(event)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
+
+//编程范式：
+//1.命令式编程：原生操作DOM
+//2.声明式编程：Vue/React/Angular 
